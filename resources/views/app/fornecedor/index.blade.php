@@ -24,8 +24,14 @@
     <BR>
     Status :{{$fornecedores[0]['status']}}
     <BR>
-     CNPJ :{{$fornecedores[0]['CNPJ']}}
-    <BR>
+    @isset($fornecedores[0]['status'] )
+        CNPJ :{{$fornecedores[0]['CNPJ']}}
+        @empty($forncedores[0]['CNPJ'])
+        VAZIO
+        <BR>
+        @endempty
+    @endisset
+    
     @unless($fornecedores[0]['status'] == 'S')
         Fornecedor: Inativo
     @endunless
